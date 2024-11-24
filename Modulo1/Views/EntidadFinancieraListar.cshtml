@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Fecha de Registro</th>
+            <th>Tipo Entidad</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entidad in Model)
+        {
+            <tr>
+                <td>@entidad.CodigoEntidad</td>
+                <td>@entidad.NombreEntidad</td>
+                <td>@entidad.FechaDeRegistro.ToShortDateString()</td>
+                <td>@entidad.TipoEntidad?.Nombre</td>
+                <td>@(entidad.Estado ? "Activo" : "Inactivo")</td>
+                <td>
+                    <a href="#">Editar</a>
+                    <a href="#">Inactivar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
